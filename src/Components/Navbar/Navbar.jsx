@@ -7,16 +7,17 @@ const Navbar = () => {
     const{user,logOut}=useAuth();
     const navOptions = (
         <>
-          <li><Link to="home">Home</Link> </li>
+          <li><Link to="/home">Home</Link> </li>
           <li> <Link to="">Our menu</Link> </li>
           <li><Link to="">Order Food</Link></li>
+          {/* <li><Link to="/login">login</Link></li> */}
              
      
         </>
       );
     return (
         <>
-       <div className="navbar bg-slate-500 ">
+       <div className="navbar bg-slate-500 z-10 fixed   max-w-screen-xl mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,7 +38,7 @@ const Navbar = () => {
   <div className="navbar-end">
   <div className="">
         {
-                        user?.email ?    <div className="flex items-center">
+                        user?.email ?    <div className="flex  items-center">
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
