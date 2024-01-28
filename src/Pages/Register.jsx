@@ -3,7 +3,8 @@ import { Link, useNavigate} from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import GoogleLogin from "../Google/GoogleLogin";
-
+import login from "../assets/login.json";
+import Lottie from "lottie-react";
 
 const Register = () => {
 	const { createUser, handleUpdateProfile } = useAuth();
@@ -45,7 +46,9 @@ const Register = () => {
 
     return (
         <>
-          <div className="w-96 mx-auto mt-8 max-w-md  p-8 space-y-3 rounded-xl bg-slate-400 dark:bg-gray-900 dark:text-gray-100">
+           <div className="font-serif relative mx-auto mt-16 space-y-3 ">
+			 <div className="flex w-[1000px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
+			 <div className="w-[500px] h-[500px]">
 	<h1 className="text-2xl font-bold text-center">Sing Up</h1>
 	
 	<form  onSubmit={handleSubmit} noValidate="" action="" className="space-y-4">
@@ -97,7 +100,16 @@ const Register = () => {
 	<p className="text-xs text-center sm:px-4 dark:text-gray-400">Don't have an account?
   <Link to="/login"><a rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Login</a></Link>
 	</p>
-</div>  
+            </div> 
+			<div className="w-[500px] h-[500px]">
+               <div className="text-center">
+			   <h2 className="text-2xl font-bold">Welcome</h2>
+			 <p>Sing in get started and explore all <br/> the amazing feature our platform <br/> has to offer</p>
+			   </div>
+			 <Lottie animationData={login} className=''/>
+		  </div>
+			 </div>
+			</div> 
         </>
     );
 };

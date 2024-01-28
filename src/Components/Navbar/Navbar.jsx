@@ -1,23 +1,26 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-
+import logo from '../../assets/log.png'
 
 
 const Navbar = () => {
     const{user,logOut}=useAuth();
     const navOptions = (
         <>
-          <li><Link to="/home">Home</Link> </li>
-          <li> <Link to="">Our menu</Link> </li>
-          <li><Link to="">Order Food</Link></li>
-          {/* <li><Link to="/login">login</Link></li> */}
+          <li className=" "><Link to="/home">Home</Link> </li>
+          <li className=""> <Link to="">Our product</Link> </li>
+          <li className=""><Link to="">About</Link></li>
+          <li className=""><Link to="">Dashboard</Link></li>
+          <li className=""><Link to="">Contact</Link></li>
+         
+
              
      
         </>
       );
     return (
         <>
-       <div className="navbar bg-slate-500 z-10 fixed   max-w-screen-xl mx-auto">
+       <div className="navbar bg-slate-500 z-10 fixed  opacity-4  max-w-screen-xl mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -27,10 +30,10 @@ const Navbar = () => {
        
         {navOptions}
       </ul>
-    </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    </div> 
+     <img src={logo} alt="" className="w-20 h-14 " />
   </div>
-  <div className="navbar-center hidden lg:flex">
+  <div className="navbar-center text-white  hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
      {navOptions}
     </ul>

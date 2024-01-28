@@ -11,8 +11,9 @@ const GoogleLogin = () => {
 
     const handleGoogleLogin = (media) => {
         media()
-        .then(() => {
+        .then((user) => {
             Swal.fire('User logged in successfully');
+            console.log(user)
             navigate('/')
         })
         .catch(error => {

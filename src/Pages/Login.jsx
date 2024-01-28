@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import GoogleLogin from "../Google/GoogleLogin";
 import Swal from "sweetalert2";
-
+import login from "../assets/login.json";
+import Lottie from "lottie-react";
 
 const Login = () => {
 	const {signIn}=useContext(AuthContext)
@@ -31,12 +32,14 @@ const Login = () => {
 
     return (
         <>
-            <div className="w-full max-w-md p-8 bg-slate-400 relative mx-auto mt-16 space-y-3  rounded-xl dark:bg-gray-900 dark:text-gray-100">
+            <div className=" font-serif relative mx-auto mt-16 space-y-3   ">
+	      <div className="flex w-[1000px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
+			<div className="w-[500px] h-[500px]">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
 	<form onSubmit={handleSubmit} noValidate="" action="" className="space-y-6">
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Email</label>
-			<input type="email" onChange={(e)=>setEmail(e.target.value)} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+			<input type="email" onChange={(e)=>setEmail(e.target.value)} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"/>
 		</div>
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Password</label>
@@ -49,10 +52,10 @@ const Login = () => {
 	</form>
 	<div className="flex items-center pt-2 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-		<p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
+		<p className="px-3 text-sm dark:text-gray-400 mt-4">Login with social accounts</p>
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 	</div>
-	<div className="flex justify-center space-x-4">
+	<div className="flex justify-center space-x-4 mt-4">
 		 <GoogleLogin/>
 		<button aria-label="Log in with Twitter" className="p-3 rounded-sm">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -68,7 +71,16 @@ const Login = () => {
 	<p className="text-xs text-center sm:px-6  dark:text-gray-400">Don't have an account?
 		<Link to='/register'><a rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Sign up</a></Link>
 	</p>
-</div>
+	      </div>
+		  <div className="w-[500px] h-[500px]">
+               <div className="text-center">
+			   <h2 className="text-2xl font-bold">Welcome</h2>
+			 <p>Sing in get started and explore all <br/> the amazing feature our platform <br/> has to offer</p>
+			   </div>
+			 <Lottie animationData={login} className=''/>
+		  </div>
+	   </div>
+            </div>
         </>
     );
 };
