@@ -18,7 +18,12 @@ const Register = () => {
      e.preventDefault();
    const user={name,email,image,password};
    console.log(user)
-
+    
+//    validation 
+   if (password.length < 6) {
+	   Swal.error('Password must be at least 6 characters');
+	   return;
+   }
        
 	   createUser(email, password)
 	  
