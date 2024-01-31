@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "img": "https://i.ibb.co/fxWGVmw/fresh-rem.png",
+      "title": "Fresh Gas",
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "img": "https://i.ibb.co/cyctsmd/unigas-removebg-preview.png",
+      "title": "Uni Gas",
+      "price": 29.99
+    },
+    {
+      "id": 3,
+      "img": "https://i.ibb.co/dDbTT2D/Omera-LPG-Gas-removebg-preview.png",
+      "title": "Omera Gas",
+      "price": 39.99
+    },
+    {
+      "id": 4,
+      "img": "https://i.ibb.co/HFydz4M/jamuna-removebg-preview.png",
+      "title": "Jamuna Gas",
+      "price": 49.99
+    },
+    {
+      "id": 5,
+      "img": "https://i.ibb.co/mztjsLy/bashundhara-removebg-preview.png",
+      "title": "Bashundhara Gas",
+      "price": 59.99
+    },
+    {
+      "id": 6,
+      "img": "https://i.ibb.co/bsFR1Q7/Dalta-removebg-preview.png",
+      "title": "Dalta Gas",
+      "price": 59.99
+    },
+    {
+      "id": 7,
+      "img": "https://i.ibb.co/1G2x3Q9/orion-removebg-preview.png",
+      "title":"Orion Gas",
+      "price": 59.99
+    },
+    {
+      "id": 8,
+      "img": "https://i.ibb.co/WkWrFj1/ptromax-removebg-preview.png",
+      "title": "PtroMax Gas",
+      "price": 59.99
+    },
+    {
+      "id": 9,
+      "img": "https://i.ibb.co/K9vv2CJ/fbbm-lp-gas-removebg-preview.png",
+      "title": "BM Gas",
+      "price": 59.99
+    }
+
+]
+  

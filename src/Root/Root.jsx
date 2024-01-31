@@ -2,6 +2,8 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 
+
+
 const Root = () => {
   const location=useLocation();
   // console.log(location);
@@ -11,6 +13,7 @@ const Root = () => {
        { noHeader ||    <Navbar/>}
           <Outlet/>
           { noHeader ||    <Footer/>}
+        
         </>
     );
 };

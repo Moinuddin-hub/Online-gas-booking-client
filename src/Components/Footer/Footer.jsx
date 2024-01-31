@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <>
-            <footer className="px-4 divide-y bg-blue-800 dark:bg-gray-800 dark:text-gray-100">
+            <footer className="px-4 divide-y font-serif dark:bg-gray-800 dark:text-gray-100">
 	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 		<div className="lg:w-1/3">
 			<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
@@ -80,7 +80,7 @@ const Footer = () => {
 			</div>
 		</div>
 	</div>
-	<div className="py-6 text-sm text-center dark:text-gray-400">© 1968 Company Co. All rights reserved.</div>
+	<div className="py-6 text-lg text-center bg-purple-950 text-white dark:text-gray-400">© 1968 Company Co. All rights reserved.</div>
 </footer>
         </>
     );

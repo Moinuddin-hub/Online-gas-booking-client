@@ -62,11 +62,16 @@ const Register = () => {
 			<input type="email" onChange={(e)=>setEmail(e.target.value)} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 		
 		</div>
-		<div className="space-y-1 text-sm">
+		{/* <div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Profile Image</label>
 			<input type="text" onChange={(e)=>setImage(e.target.value)} name="Image" id="Image" placeholder="Image link" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 		
-		</div>
+		</div> */}
+		<div className="space-y-1 text-sm">
+		<label  className="block dark:text-gray-400">Image</label>
+		<input type="file" onChange={(e)=>setImage(e.target.value)} className="file-input file-input-bordered  w-full" />
+        </div>
+
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Password</label>
 			<input type="password" onChange={(e)=>setPassword(e.target.value)} name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
