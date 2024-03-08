@@ -4,14 +4,24 @@ import ProductCart from "./ProductCart";
 
 const Product = () => {
     const [products, setProducts] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    useEffect(()=>{
-        fetch('data.json')
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-        // .finally(()=>setLoading(false))
-    },[])
-    console.log(products);
+    const [loading, setLoading] = useState(true);
+    const[filter,setFilter]=useState(products);
+    const[data,setData]=useState("");
+       useEffect(()=>{
+           fetch('data.json')
+           .then(res=>res.json())
+           .then((data)=>{
+           setProducts(data);
+           setLoading(false);
+       })
+           
+       },[])
+
+   const handleSubmit=(e)=>{
+     e.preventDefault();
+     const SearchData=products.filter(product=>product.title.toLowerCase().includes(data.toLowerCase()));
+     setFilter(SearchData);
+   }
     return (
         <>
         <div>
@@ -19,22 +29,24 @@ const Product = () => {
    <div className="hero-overlay bg-opacity-80"></div>
    <div className="hero-content text-center text-neutral-content">
      <div className="max-w-md">
-    <div className="flex">
+     <form onSubmit={handleSubmit}>
+     <div className="flex">
     <div className="form-control ">
-      <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+      <input type="text" placeholder="Search" onChange={(e)=>setData(e.target.value)} className="input input-bordered w-24 md:w-auto" />
     
     </div>
-      {/* <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p> */}
+     
       <div>
          <button className="btn btn-primary">Search</button>
       </div>
    </div>
+     </form>
     </div>
   </div>
         </div>
         <div className="grid grid-cols-4 gap-4">
            {
-             products.map(product=><ProductCart key={product.id} product={product}></ProductCart>)
+            loading? <h1>loading</h1> : filter.map(product=><ProductCart key={product.id} product={product}></ProductCart>)
            }
            </div>
            </div>
