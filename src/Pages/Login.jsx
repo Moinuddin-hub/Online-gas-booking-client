@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import GoogleLogin from "../Google/GoogleLogin";
 import Swal from "sweetalert2";
@@ -9,20 +9,25 @@ import Lottie from "lottie-react";
 const Login = () => {
 	const {signIn}=useContext(AuthContext)
 	const navigate=useNavigate();
+	const location=useLocation();
+	const from=location.state?.from?.pathname || "/";
+	console.log('state in the location login page',location.state);
 	const [email,setEmail]=useState(null);
 	const [password,setPassword]=useState(null);
 
 	const handleSubmit=(e)=>{
 		e.preventDefault();
+		
 		const user={email,password};
 		console.log(user);
 
 
 
 		signIn(email,password)
-		.then(()=>{
+		.then((res)=>{
 			Swal.fire('User Login successfully');
-			navigate('/');
+			console.log(res);
+			navigate(from,{replace:true});
 		})
 		.catch((error)=>{
 			Swal.fire(error.message);

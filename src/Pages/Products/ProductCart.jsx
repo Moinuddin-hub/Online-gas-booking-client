@@ -1,6 +1,57 @@
+import { Link, useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const ProductCart = ({ product }) => {
   console.log(product);
-  const { img, title, price } = product;
+  const navigate=useNavigate();
+  const location=useLocation();
+   const {user}=useAuth();
+  const { img, title, price,id } = product;
+  const handleAddProduct=(product)=>{
+    if(user && user.email){
+     console.log(user.email,product);
+    const cartItem={
+      productId:id,
+      email:user.email,
+      title,
+      img,
+      price
+    }
+    console.log(cartItem);
+    axios.post('http://localhost:5000/carts', cartItem)
+    .then(res => {
+      console.log(res.data);
+      if(res.data.insertedId){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${title} added to your cart`,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
+ }
+    else{
+    
+Swal.fire({
+  title: "You are not Logged In",
+  text: "please login to add to the cart",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, login!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    navigate('/login',{state:{from:location}})
+  }
+});
+    }
+  }
   return (
     <>
       <div>
@@ -45,7 +96,7 @@ const ProductCart = ({ product }) => {
             </div>
           </div>
 
-          <button className="btn btn-primary w-full">Add to card </button>
+<button onClick={()=>handleAddProduct(product)} className="btn btn-primary w-full">view Details </button>
         </div>
       </div>
     </>

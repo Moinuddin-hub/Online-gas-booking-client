@@ -18,52 +18,51 @@ const Register = () => {
   const [image, setImage] = useState(null);
   const [password, setPassword] = useState(null);
 
-   const axiosPublic=useAxiosPublic();
-  const handleSubmit = async(e) => {
+  const axiosPublic = useAxiosPublic();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = { name, email,image, password };
+    const user = { name, email, image, password };
     console.log(user);
-	// const res=await axiosPublic.post(image_hosting_api,image,{
-	// 	headers:{
-	// 		'Content-Type':'multipart/form-data' 
-	// 	}
-	// });
-	// console.log(res.user);
-	const formData = new FormData();
-  
-    formData.append('image', image);
-    
-
-    try {
-      const response = await axiosPublic.post(image_hosting_api, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-    
-      console.log('Upload successful:', response.data);
-    } catch (error) {
-     
-      console.error('Error uploading picture:', error);
-    }
-    //    validation
+    // const res=await axiosPublic.post(image_hosting_api,image,{
+    // 	headers:{
+    // 		'Content-Type':'multipart/form-data'
+    // 	}
+    // });
+    // console.log(res.user);
     if (password.length < 6) {
       Swal.error("Password must be at least 6 characters");
       return;
     }
+    const formData = new FormData();
 
-    createUser(email, password)
-      .then(() => {
-        handleUpdateProfile(name,image ).then(() => {
-          Swal.fire("User created successfully");
-          navigate("/login");
-        });
-      })
-      .catch((error) => {
-        //
-        // console.log(error.message)
-        Swal.fire(error.message);
+    formData.append("image", image);
+
+    try {
+      const response = await axiosPublic.post(image_hosting_api, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
+
+      console.log("Upload successful:", response.data);
+  
+      createUser(email, password)
+        .then((res) => {
+          handleUpdateProfile(name, response.data.data.display_url).then(() => {
+            Swal.fire("User created successfully");
+            navigate("/login");
+          });
+          console.log(res.user);
+        })
+        .catch((error) => {
+          //
+          // console.log(error.message)
+          Swal.fire(error.message);
+        });
+    } catch (error) {
+      console.error("Error uploading picture:", error);
+    }
+    //    validation
   };
 
   return (
