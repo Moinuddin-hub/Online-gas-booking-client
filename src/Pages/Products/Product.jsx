@@ -33,8 +33,7 @@ const Product = () => {
      <form onSubmit={handleSubmit}>
      <div className="flex">
     <div className="form-control ">
-      <input type="text" placeholder="Search" onChange={(e)=>setData(e.target.value)} className="input input-bordered w-24 md:w-auto" />
-    
+      <input type="text" placeholder="Search" onChange={(e)=>setData(e.target.value)} className="input input-bordered text-black border-stone-950 font-bold w-24 md:w-auto" />
     </div>
      
       <div>

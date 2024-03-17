@@ -6,6 +6,10 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import Contact from "../Pages/Contact/Contact";
 import Product from "../Pages/Products/Product";
+import Dashboard from "../Root/Dashboard";
+import Cart from "../Pages/Dashboard/Cart";
+import User from "../Pages/Dashboard/User";
+import AddProduct from "../Pages/Dashboard/AddProduct";
 // import Details from "../Pages/Products/Details";
     
 const router = createBrowserRouter([
@@ -40,5 +44,23 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:'dashboard',
+      element:<Dashboard/>,
+      children:[
+        {
+          path:'cart',
+          element:<Cart/>
+        },
+        {
+          path:'user',
+          element:<User/>
+        },
+        {
+          path:'addProduct',
+          element:<AddProduct/>
+        }
+      ]
+    }
   ]);
   export default router;

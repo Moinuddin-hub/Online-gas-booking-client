@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/log.png";
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../Hooks/useCart";
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [cart]=useCart();
   const navOptions = (
     <>
       <li className="text-md font-bold">
@@ -17,16 +19,16 @@ const Navbar = () => {
         <Link to="">About</Link>
       </li>
       <li className="text-md font-bold">
-        <Link to="">Dashboard</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </li>
       <li className="text-md font-bold">
         <Link to="/contact">Contact </Link>
       </li>
       <li className="text-md font-bold">
-        <Link to="/">
+        <Link to="/dashboard/cart">
           <button className="btn">
           <FaShoppingCart/> 
-            <div className="badge badge-secondary">+0</div>
+            <div className="badge badge-secondary">+{cart.length}</div>
           </button>
         </Link>
       </li>
@@ -34,7 +36,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar bg-fuchsia-100 z-10  opacity-4  max-w-screen-xl mx-auto">
+      <div className="navbar bg-[#C2DFFF] z-10 shadow-2xl  opacity-4  max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
