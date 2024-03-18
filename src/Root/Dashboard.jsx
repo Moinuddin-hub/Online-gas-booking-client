@@ -39,7 +39,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li className="text-md font-bold">
-            <NavLink to="/">
+            <NavLink to="/home">
             <FaHome/> Back to Home
             </NavLink>
           </li>
