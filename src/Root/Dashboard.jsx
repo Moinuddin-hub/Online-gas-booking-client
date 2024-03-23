@@ -8,7 +8,7 @@ import { useState } from "react";
 const Dashboard = () => {
   const [open,setOpen]=useState(false)
   return (
-    <div>
+    <div className="">
          <div className="md:hidden flex justify-end" onClick={()=>setOpen(!open)}>
           {
             open===true? <IoMdMenu className='text-2xl'/>:<IoClose className="text-2xl" />
@@ -39,7 +39,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li className="text-md font-bold">
-            <NavLink to="/home">
+            <NavLink to="/">
             <FaHome/> Back to Home
             </NavLink>
           </li>

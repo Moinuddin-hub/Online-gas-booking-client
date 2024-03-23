@@ -10,9 +10,11 @@ const Root = () => {
     location.pathname.includes("/register");
   return (
     <>
-      {noHeader || <Navbar />}
-      <Outlet />
-      {noHeader || <Footer />}
+      <div className=" font-sans">
+        {noHeader || <Navbar />}
+        <Outlet />
+        {noHeader || <Footer />}
+      </div>
     </>
   );
 };

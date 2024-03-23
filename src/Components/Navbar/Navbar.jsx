@@ -9,7 +9,7 @@ const Navbar = () => {
   const navOptions = (
     <>
       <li className="text-md font-bold">
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li className="text-md font-bold">
        
