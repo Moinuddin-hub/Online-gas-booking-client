@@ -6,6 +6,7 @@ import GoogleLogin from "../Google/GoogleLogin";
 import login from "../assets/login.json";
 import Lottie from "lottie-react";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+// import axios from "axios";
 
 const image_hosting_key = import.meta.env.VITE_IMG_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -23,12 +24,7 @@ const Register = () => {
     e.preventDefault();
     const user = { name, email, image, password };
     console.log(user);
-    // const res=await axiosPublic.post(image_hosting_api,image,{
-    // 	headers:{
-    // 		'Content-Type':'multipart/form-data'
-    // 	}
-    // });
-    // console.log(res.user);
+  
     if (password.length < 6) {
       Swal.error("Password must be at least 6 characters");
       return;
@@ -43,20 +39,29 @@ const Register = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-
       console.log("Upload successful:", response.data);
-  
       createUser(email, password)
         .then((res) => {
-          handleUpdateProfile(name, response.data.data.display_url).then(() => {
-            Swal.fire("User created successfully");
-            navigate("/login");
+          handleUpdateProfile(name, response.data.data.display_url)
+          .then(() => {
+            const userInfo={
+              name:name,
+              email:email,
+            }
+            axiosPublic.post("/users",userInfo)
+            .then(res=>{
+                if(res.data.insertedId){
+                  console.log("user added to database");
+                  Swal.fire("User created successfully")
+                  navigate("/login");
+                }
+            })   
           });
+       
+       
           console.log(res.user);
         })
         .catch((error) => {
-          //
-          // console.log(error.message)
           Swal.fire(error.message);
         });
     } catch (error) {
