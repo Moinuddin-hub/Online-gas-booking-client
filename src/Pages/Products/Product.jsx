@@ -7,7 +7,7 @@ const Product = () => {
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState("");
   useEffect(() => {
-    fetch("data.json")
+    fetch("http://localhost:5000/product")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -19,7 +19,7 @@ const Product = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const SearchData = products.filter((product) =>
-      product.title.toLowerCase().includes(data.toLowerCase())
+      product.name.toLowerCase().includes(data.toLowerCase())
     );
     setFilter(SearchData);
   };
@@ -43,7 +43,7 @@ const Product = () => {
                       type="text"
                       placeholder="Search"
                       onChange={(e) => setData(e.target.value)}
-                      className="input input-bordered text-black border-stone-950 font-bold w-24 md:w-auto"
+                      className="input input-bordered text-black border-stone-950 font-bold w-72 md:w-72"
                     />
                   </div>
 
@@ -60,7 +60,7 @@ const Product = () => {
             <h1>loading</h1>
           ) : (
             filter.map((product) => (
-              <ProductCart key={product.id} product={product}></ProductCart>
+              <ProductCart key={product._id} product={product}></ProductCart>
             ))
           )}
         </div>

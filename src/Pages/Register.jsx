@@ -47,6 +47,7 @@ const Register = () => {
             const userInfo={
               name:name,
               email:email,
+              image:response.data.data.display_url
             }
             axiosPublic.post("/users",userInfo)
             .then(res=>{
@@ -73,15 +74,15 @@ const Register = () => {
   return (
     <>
       <div className="font-serif relative mx-auto mt-16 space-y-3 ">
-        <div className="flex  w-[1000px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
+        <div className="flex  flex-col lg:flex-row-reverse lg:w-[800px] w-[400px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
           <div className="w-[500px] h-[500px]">
-            <h1 className="text-2xl font-bold text-center">Sing Up</h1>
+            <h1 className="text-2xl font-bold ml-24 md:text-center">Sing Up</h1>
 
             <form
               onSubmit={handleSubmit}
               noValidate=""
               action=""
-              className="space-y-4"
+              className="space-y-4 w-80 md:w-full"
             >
               <div className="space-y-1 text-sm">
                 <label className="block dark:text-gray-400">Username</label>
@@ -136,7 +137,7 @@ const Register = () => {
                 Sign up
               </button>
             </form>
-
+  <div className="mr-36 md:mr-0 md:text-center mb-10">
             <div className="flex items-center pt-2 space-x-1">
               <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
               <p className="px-3 text-sm dark:text-gray-400">
@@ -184,16 +185,17 @@ const Register = () => {
                 </a>
               </Link>
             </p>
+            </div>
           </div>
           <div className="w-[500px] h-[500px]">
-            <div className="text-center">
+            <div className="ml-20 md:ml-0 md:text-center">
               <h2 className="text-2xl font-bold">Welcome</h2>
               <p>
                 Sing in get started and explore all <br /> the amazing feature
                 our platform <br /> has to offer
               </p>
             </div>
-            <Lottie animationData={login} className="" />
+            <Lottie animationData={login} className="w-80" />
           </div>
         </div>
       </div>

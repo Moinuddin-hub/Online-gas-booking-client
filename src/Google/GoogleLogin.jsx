@@ -1,29 +1,26 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-
+import toast from "react-hot-toast";
 const GoogleLogin = () => {
   const navigate = useNavigate();
   const { googleLogin } = useContext(AuthContext);
-  const axiosPublic=useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
   const handleGoogleLogin = (media) => {
     media()
       .then((result) => {
-      
         console.log(result.user);
-         const userInfo={
-           name:result.user?.displayName,
-           email:result.user?.email,
-         }
-         axiosPublic.post('/users',userInfo)
-         .then(res=>{
-            Swal.fire("User logged in successfully");
-            console.log(res.data)
-            navigate("/");
-         })
-        
+        const userInfo = {
+          name: result.user?.displayName,
+          email: result.user?.email,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          toast.success("User logged in successfully");
+          console.log(res.data);
+          navigate("/");
+        });
       })
       .catch((error) => {
         Swal.fire(error.message);

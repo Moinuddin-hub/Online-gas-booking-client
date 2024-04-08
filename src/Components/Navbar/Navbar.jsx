@@ -6,6 +6,8 @@ import useCart from "../../Hooks/useCart";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [cart]=useCart();
+
+
   const navOptions = (
     <>
       <li className="text-md font-bold">
@@ -36,7 +38,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar bg-[#C2DFFF] z-10 shadow-2xl  opacity-4  max-w-screen-xl mx-auto">
+      <div className="navbar bg-[#C2DFFF] z-10 shadow-2xl h-20  opacity-4  max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

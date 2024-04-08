@@ -8,7 +8,7 @@ const Hero = () => {
             className="max-w-xl rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-xl md:text-5xl font-bold">
               Benefit with our
               <br /> fastest LPG cylinder
               <br /> booking for your haven

@@ -8,13 +8,18 @@ import Product from "../Pages/Products/Product";
 import Dashboard from "../Root/Dashboard";
 import Cart from "../Pages/Dashboard/Cart";
 import User from "../Pages/Dashboard/User";
-import AddProduct from "../Pages/Dashboard/AddProduct";
+// import AddProduct from "../Pages/Dashboard/AddProduct";
+import AllUser from "../Pages/Dashboard/Admin/AllUser";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import AddProducts from "../Pages/Dashboard/Admin/Addproducts";
 // import Details from "../Pages/Products/Details";
     
 const router = createBrowserRouter([
     {
       path: "/",
       element:<Root/>,
+      errorElement:<ErrorPage/>,
       children:[
         {
           path:'/',
@@ -39,13 +44,13 @@ const router = createBrowserRouter([
         },
         {
           path:'/product',
-          element:<Product/>
+          element:<PrivateRoute><Product/></PrivateRoute>
         }
       ]
     },
     {
       path:'dashboard',
-      element:<Dashboard/>,
+      element:<PrivateRoute><Dashboard/></PrivateRoute>,
       children:[
         {
           path:'cart',
@@ -57,7 +62,12 @@ const router = createBrowserRouter([
         },
         {
           path:'addProduct',
-          element:<AddProduct/>
+          element:<AddProducts/>
+        },
+        {
+          path:'allUser',
+          element:<AllUser/>,
+       
         }
       ]
     }

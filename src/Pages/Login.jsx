@@ -38,10 +38,10 @@ const Login = () => {
     return (
         <>
             <div className=" font-serif relative mx-auto mt-16 space-y-3   ">
-	      <div className="flex w-[1000px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
+	      <div className="flex  flex-col lg:flex-row-reverse lg:w-[800px] w-[400px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
 			<div className="w-[500px] h-[500px]">
-	<h1 className="text-2xl font-bold text-center">Login</h1>
-	<form onSubmit={handleSubmit} noValidate="" action="" className="space-y-6">
+	<h1 className="text-2xl  font-bold ml-28 md:text-center md:ml-0">Login</h1>
+	<form onSubmit={handleSubmit} noValidate="" action="" className=" w-80 space-y-6">
 		<div className="space-y-1 text-sm">
 			<label  className="block dark:text-gray-400">Email</label>
 			<input type="email" onChange={(e)=>setEmail(e.target.value)} name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"/>
@@ -55,6 +55,7 @@ const Login = () => {
 		</div>
 		<button className="block w-full btn btn-primary p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
 	</form>
+	<div className="mr-36 md:mr-0 md:text-center mb-10">
 	<div className="flex items-center pt-2 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
 		<p className="px-3 text-sm dark:text-gray-400 mt-4">Login with social accounts</p>
@@ -76,13 +77,14 @@ const Login = () => {
 	<p className="text-xs text-center sm:px-6  dark:text-gray-400">Don't have an account?
 		<Link to='/register'><a rel="noopener noreferrer" href="#" className="underline dark:text-gray-100">Sign up</a></Link>
 	</p>
+	</div>
 	      </div>
 		  <div className="w-[500px] h-[500px]">
-               <div className="text-center">
+               <div className=" ml-24 md:text-center">
 			   <h2 className="text-2xl font-bold">Welcome</h2>
 			 <p>Sing in get started and explore all <br/> the amazing feature our platform <br/> has to offer</p>
 			   </div>
-			 <Lottie animationData={login} className=''/>
+			 <Lottie animationData={login} className='w-80 md:w-full'/>
 		  </div>
 	   </div>
             </div>
