@@ -20,7 +20,7 @@ const ProductCart = ({ product }) => {
       const cartItem = {
         productId: id,
         email: user.email,
-        title,
+        name,
         img,
         price,
       };
@@ -31,7 +31,7 @@ const ProductCart = ({ product }) => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${title} added to your cart`,
+            title: `${name} added to your cart`,
             showConfirmButton: false,
             timer: 1500,
           });

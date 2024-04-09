@@ -83,7 +83,7 @@ const Cart = () => {
                   </div>
                 </td>
                 <td className="text-md md:text-xl font-bold border-2 text-center">
-                  {item.title}
+                  {item.name}
                 </td>
                 <td className="text-xl font-bold border-2 text-center">
                   {item.price}TK
