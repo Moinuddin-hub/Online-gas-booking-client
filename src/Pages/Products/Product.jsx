@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCart from "./ProductCart";
+import Catalog from "../../Components/Catalog/Catalog";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +16,7 @@ const Product = () => {
         setLoading(false);
       });
   }, []);
-
+  console.log(products)
   const handleSubmit = (e) => {
     e.preventDefault();
     const SearchData = products.filter((product) =>
@@ -23,6 +24,7 @@ const Product = () => {
     );
     setFilter(SearchData);
   };
+  
   return (
     <>
       <div>
@@ -59,10 +61,13 @@ const Product = () => {
           {loading ? (
             <h1>loading</h1>
           ) : (
-            filter.map((product) => (
+            filter?.map((product) => (
               <ProductCart key={product._id} product={product}></ProductCart>
             ))
-          )}
+          )
+        
+       
+          }
         </div>
       </div>
     </>

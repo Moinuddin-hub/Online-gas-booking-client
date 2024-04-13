@@ -3,6 +3,7 @@ import useCart from "../../Hooks/useCart";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 const Cart = () => {
   const [cart,refetch] = useCart();
   console.log(cart);
@@ -44,7 +45,7 @@ const Cart = () => {
           <button className="btn btn-primary hidden">cupon</button>
         }
         <h2 className="text-3xl font-bold">Total Price:{total}TK </h2>
-        <button className="btn btn-success">Pay</button>
+        <Link to='/dashboard/payment'><button className="btn btn-success">Pay</button></Link>
       </div>
       <div className="overflow-x-auto bg-indigo-800 text-white ">
         <table className="table  w-96 md:w-full border-2">
