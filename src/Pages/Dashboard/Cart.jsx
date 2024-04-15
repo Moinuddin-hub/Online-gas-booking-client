@@ -38,7 +38,7 @@ const Cart = () => {
     });
   }
   return (
-    <div className=" bg-slate-100 shadow-2xl h-auto font-light">
+    <div className=" bg-slate-100 shadow-2xl h-auto font-light font-serif">
       <div className="flex justify-around py-4">
         <h2 className="text-3xl font-bold">Total Order:{cart.length} </h2>
         {
@@ -47,7 +47,7 @@ const Cart = () => {
         <h2 className="text-3xl font-bold">Total Price:{total}TK </h2>
         <Link to='/dashboard/payment'><button className="btn btn-success">Pay</button></Link>
       </div>
-      <div className="overflow-x-auto bg-indigo-800 text-white ">
+      <div className="overflow-x-auto  bg-slate-500 text-white ">
         <table className="table  w-96 md:w-full border-2">
           {/* head */}
           <thead>

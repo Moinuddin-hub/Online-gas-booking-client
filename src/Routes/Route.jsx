@@ -16,6 +16,8 @@ import AddProducts from "../Pages/Dashboard/Admin/Addproducts";
 import ManageItem from "../Pages/Dashboard/Admin/ManageItem";
 import Update from "../Pages/Dashboard/Admin/Update";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
+import PaymentFail from "../Pages/Dashboard/Payment/PaymentFail";
 // import AdminRoute from "./AdminRoute";
 // import Details from "../Pages/Products/Details";
 
@@ -53,7 +55,17 @@ const router = createBrowserRouter([
             <Product />
           </PrivateRoute>
         ),
+        
       },
+      {
+        path:'payment/success/:tranId',
+        element:<PaymentSuccess/>
+
+      },
+      {
+        path:'payment/fail/:tranId',
+        element:<PaymentFail/>
+      }
     ],
   },
   {
