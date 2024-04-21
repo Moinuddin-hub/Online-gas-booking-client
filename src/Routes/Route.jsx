@@ -18,6 +18,12 @@ import Update from "../Pages/Dashboard/Admin/Update";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
 import PaymentFail from "../Pages/Dashboard/Payment/PaymentFail";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome";
+
+import AboutPage from "../Pages/AboutPage/AboutPage";
+
+import ManageBooking from "../Pages/Dashboard/Admin/ManageBooking/ManageBooking";
+// import AboutPage from "../Pages/AboutPage/AboutPage";
 // import AdminRoute from "./AdminRoute";
 // import Details from "../Pages/Products/Details";
 
@@ -47,6 +53,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/aboutPage",
+        element:<AboutPage/>
+
       },
       {
         path: "/product",
@@ -85,12 +96,22 @@ const router = createBrowserRouter([
         element: <User />,
       },
       {
+       path:'adminHome',
+       element:<AdminHome/>
+      },
+      {
         path: "addProduct",
         element: <AddProducts></AddProducts>,
       },
       {
         path: "manageItem",
         element: <ManageItem />,
+      },
+      {
+        path:'booking',
+        loader:()=>fetch('http://localhost:5000/order'),
+        element:<ManageBooking/>
+
       },
       {
         path: "update/:id",

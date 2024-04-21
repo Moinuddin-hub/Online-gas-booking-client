@@ -13,6 +13,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useState } from "react";
 import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
+import { MdOutlineMenuBook } from "react-icons/md";
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [cart] = useCart();
@@ -40,7 +41,7 @@ const Dashboard = () => {
             {isAdmin ? (
               <>
                 <li className="text-md font-bold">
-                  <NavLink to="/dashboard/user">
+                  <NavLink to="/dashboard/adminHome">
                     <IoPersonAddSharp />
                     Admin Home
                   </NavLink>
@@ -57,7 +58,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li className="text-md font-bold">
-                  <NavLink to="/dashboard/bookings">
+                  <NavLink to="/dashboard/booking">
                     <FaBook />
                     Manage Booking
                   </NavLink>
@@ -93,7 +94,8 @@ const Dashboard = () => {
             </li>
             <li className="text-md font-bold">
               <NavLink to="/">
-                <FaHome /> Menu
+              <MdOutlineMenuBook />
+                      Menu
               </NavLink>
             </li>
             <li className="text-md font-bold">

@@ -18,7 +18,7 @@ const Navbar = () => {
         <Link to="/product">Our product</Link>
       </li>
       <li className="text-md font-bold">
-        <Link to="">About</Link>
+        <Link to="/aboutPage">About</Link>
       </li>
       <li className="text-md font-bold">
         <Link to="/dashboard">Dashboard</Link>
@@ -38,7 +38,7 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar bg-[#C2DFFF] z-10 shadow-2xl h-20  opacity-4  max-w-screen-xl mx-auto">
+      <div className="navbar bg-opacity-30  bg-black text-white fixed z-10 shadow-2xl h-20  opacity-4  max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,7 +59,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu text-2xl menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu text-2xl bg-slate-900 menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
             >
               {navOptions}
             </ul>
@@ -69,10 +69,10 @@ const Navbar = () => {
         <div className="navbar-center   hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end ">
           <div className="">
             {user?.email ? (
-              <div className="flex  items-center">
+              <div className="flex   items-center">
                 <div className="dropdown dropdown-end">
                   <label
                     tabIndex={0}
@@ -84,7 +84,7 @@ const Navbar = () => {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                    className="menu menu-sm dropdown-content bg-slate-700 mt-3 z-[1] p-2 shadow  rounded-box w-52"
                   >
                     <li>
                       <button className="btn btn-sm  btn-ghost">

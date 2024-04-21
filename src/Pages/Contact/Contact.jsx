@@ -27,10 +27,10 @@ const Contact = () => {
 
   return (
     <>
-      <div className=" font-serif relative mx-auto mt-16 space-y-3   ">
+      <div className=" font-serif relative mx-auto mt-4 space-y-3   ">
         <div className="flex  flex-col lg:flex-row-reverse lg:w-[800px] w-[400px] shadow-2xl p-8 rounded-xl mx-auto dark:bg-gray-900 dark:text-gray-100 bg-slate-300 gap-8">
-          <div className=" h-[500px]  md:visible">
-            <div className="text-center">
+          <div className=" h-[500px]   md:visible">
+            <div className="text-center mt-16">
               <h2 className="text-2xl font-bold">Welcome</h2>
               <p>
                 Feel free to reach our with any inquiries <br />
@@ -42,7 +42,7 @@ const Contact = () => {
             <Lottie animationData={contact} className=" w-96 mx-auto" />
           </div>
           <div className="w-[500px] h-[500px] mt-10">
-            <h1 className="text-2xl font-bold text-center">Contact Us</h1>
+            <h1 className="text-2xl font-bold ml-24 md:text-center mt-8">Contact Us</h1>
             <form
               ref={form}
               onSubmit={sendEmail}
