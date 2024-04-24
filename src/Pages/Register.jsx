@@ -187,10 +187,10 @@ const Register = () => {
             </p>
             </div>
           </div>
-          <div className="w-[500px] h-[500px]">
-            <div className="ml-20 md:ml-0 md:text-center">
-              <h2 className="text-2xl font-bold">Welcome</h2>
-              <p>
+          <div className="w-[500px] h-[500px] mt-8  ">
+            <div className="mr-40 md:mr-0 md:ml-0 md:text-center">
+              <h2 className="text-2xl text-center font-bold">Welcome</h2>
+              <p className="text-center text-sm  mt-2 md:w-96">
                 Sing in get started and explore all <br /> the amazing feature
                 our platform <br /> has to offer
               </p>

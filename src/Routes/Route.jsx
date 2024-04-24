@@ -56,8 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/aboutPage",
-        element:<AboutPage/>
-
+        element: <AboutPage />,
       },
       {
         path: "/product",
@@ -66,17 +65,15 @@ const router = createBrowserRouter([
             <Product />
           </PrivateRoute>
         ),
-        
       },
       {
-        path:'payment/success/:tranId',
-        element:<PaymentSuccess/>
-
+        path: "payment/success/:tranId",
+        element: <PaymentSuccess />,
       },
       {
-        path:'payment/fail/:tranId',
-        element:<PaymentFail/>
-      }
+        path: "payment/fail/:tranId",
+        element: <PaymentFail />,
+      },
     ],
   },
   {
@@ -96,8 +93,8 @@ const router = createBrowserRouter([
         element: <User />,
       },
       {
-       path:'adminHome',
-       element:<AdminHome/>
+        path: "adminHome",
+        element: <AdminHome />,
       },
       {
         path: "addProduct",
@@ -108,14 +105,13 @@ const router = createBrowserRouter([
         element: <ManageItem />,
       },
       {
-        path:'booking',
-        loader:()=>fetch('http://localhost:5000/order'),
-        element:<ManageBooking/>
-
+        path: "booking",
+        element: <ManageBooking />,
       },
       {
         path: "update/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`), 
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
         element: <Update></Update>,
       },
       {
@@ -124,8 +120,8 @@ const router = createBrowserRouter([
       },
       {
         path: "payment",
-        element:<Payment/>
-      }
+        element: <Payment />,
+      },
     ],
   },
 ]);

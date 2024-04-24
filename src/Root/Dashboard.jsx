@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { IoPersonAddSharp, IoBagAddSharp } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import { IoMdMenu } from "react-icons/io";
+import { IoIosContacts, IoMdMenu } from "react-icons/io";
 import { useState } from "react";
 import useCart from "../Hooks/useCart";
 import useAdmin from "../Hooks/useAdmin";
@@ -104,8 +104,8 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li className="text-md font-bold">
-              <NavLink to="/">
-                <FaHome /> CONTACT
+              <NavLink to="/contact">
+                <IoIosContacts/> CONTACT
               </NavLink>
             </li>
           </ul>

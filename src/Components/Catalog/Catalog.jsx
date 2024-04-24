@@ -25,10 +25,8 @@ const Catalog = () => {
   }, []);
   console.log(catalog);
   return (
-    <>
-      <div className="mt-8 py-12 font-sans">
-        <h2 className="text-2xl font-bold  mt-8">RELATED PRODUCTS</h2>
-      </div>
+    <div className="mt-8 py-12 font-sans">
+      <h2 className="text-2xl font-bold mt-8">RELATED PRODUCTS</h2>
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
@@ -38,54 +36,63 @@ const Catalog = () => {
         }}
         modules={[Pagination]}
         className="mySwiper"
+        breakpoints={{
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          },
+        }}
       >
         {loading ? (
           <h2>loading---</h2>
         ) : (
-            
-          catalog?.map((cata) => (
-            <SwiperSlide>
-              {/* <div className="hover:bg-slate-300 ">
-                  <img src={cata.img} alt="" className=" w-40" />
-                </div>
-                <h2 className=" font-bold text-black text-sm">
-                  LP_GAS[এলপিজি গ্যাস]
-                </h2>
-                <h2 className=" font-bold text-black text-xl">
-                  {cata.name}  Cylinder-12Kg
-                </h2>
-                <h2 className=" font-bold text-black text-xl">{cata.price}Tk</h2> */}
-             
+          catalog?.map((cata, index) => (
+            <SwiperSlide key={index}>
               <div className="max-w-xs p-6 rounded-md shadow-md bg-slate-400 h-auto dark:bg-gray-900 dark:text-gray-50">
                 <img
                   src={cata.img}
                   alt=""
-                  className="object-cover h-52 object-center w-full rounded-md  dark:bg-gray-500 hover:bg-red-400"
+                  className="object-cover h-52 object-center w-full rounded-md dark:bg-gray-500 hover:bg-red-400"
                 />
                 <div className="mt-6 mb-2">
-               <div className="flex justify-between">
-               <span className="block text-xs font-medium tracki uppercase dark:text-violet-400">
-                  LP_GAS[এলপিজি গ্যাস]
-                  </span>
-                  <h2>{cata.price}TK</h2>
-               </div>
+                  <div className="flex justify-between">
+                    <span className="block text-xs font-medium tracki uppercase dark:text-violet-400">
+                      LP_GAS[এলপিজি গ্যাস]
+                    </span>
+                    <h2>{cata.price}TK</h2>
+                  </div>
                   <h2 className="text-xl font-semibold tracki">
-                  {cata.name}  Cylinder-12Kg
+                    {cata.name} Cylinder-12Kg
                   </h2>
                 </div>
                 <p className="dark:text-gray-100">
                   Mauris et lorem at elit tristique dignissim et ullamcorper
                 </p>
-                <button className="btn btn-success flex justify-end">Details</button>
+                <button className="btn btn-success flex justify-end">
+                  Details
+                </button>
               </div>
-        
             </SwiperSlide>
-          
           ))
         )}
-      
       </Swiper>
-    </>
+    </div>
   );
 };
 
